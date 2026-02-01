@@ -1,7 +1,10 @@
-export function afficherWorks() {
+export function afficherWorks(categoryId = null) {
   fetch("http://localhost:5678/api/works")
     .then(res => res.json())
     .then(data => {
+      if( categoryId != null ) {
+         data = data.filter(work => work.categoryId === categoryId ) ;
+      }
       const gallery = document.querySelector(".gallery");
       gallery.innerHTML = "";
 
