@@ -97,7 +97,15 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+
+	/*font-weight: bold;*/
 }
+
+/*juste retirer le trait en dessous du liens */
+nav a {
+    text-decoration: none;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -186,7 +194,7 @@ footer nav ul {
 	margin: 2em
 }
 
-
+/********** Filters ********/
 .filters {
   display: flex;
   justify-content: center;
@@ -213,3 +221,145 @@ footer nav ul {
   color: white;
 }
 
+/*****************  LOGIN  **************/
+nav li:hover {
+    font-weight: 700;
+}
+
+#login-section {
+    width: 35%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#login-section h2 {
+    margin-bottom: 40px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#login-form label {
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+}
+
+#login-form input {
+    height: 50px;
+    font-size: 1.1em;
+    border: none;
+    padding: 0 15px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.login-button {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    border: none;
+    border-radius: 60px;
+    width: 180px;
+    height: 45px;
+    margin: 40px auto;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    color: #3D3D3D;
+    font-size: 0.9em;
+    margin-top: -10px;
+}
+
+.active-page {
+    font-weight: 700; 
+   /** color: #B1663C; ***/
+}
+
+/* MODE EDITION */
+/* ================================
+   MODE ÉDITION — BANDEAU NOIR (PLEINE LARGEUR)
+================================ */
+#edit-banner {
+    position: relative;
+    width: 100vw;               /* pleine largeur de la fenêtre */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;         /* permet de sortir du conteneur centré */
+    margin-right: -50vw;
+
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#edit-banner i {
+    font-size: 14px;
+}
+
+/* ================================
+   BOUTON "MODIFIER" (Mes Projets)
+================================ */
+#edit-button {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: black;
+}
+
+#edit-button i {
+    font-size: 14px;
+}
+
+
+/* ================================
+   NAVIGATION — LOGIN / LOGOUT
+================================ */
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: #1D6154; /* Couleur verte de la maquette */
+}
+
+
+/* ================================
+   TITRE "MES PROJETS" ALIGNÉ
+================================ */
+#portfolio h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+	margin-bottom: 3em;
+	margin-top: 5em;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+nav li {
+    padding: 0;
+}
