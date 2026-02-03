@@ -32,4 +32,11 @@ document.querySelector(".li-login").style.display = "none";
         localStorage.removeItem("token");
         window.location.reload();
     });
+}  else {
+    // cacher logout
+    document.querySelector(".li-logout").style.display = "none";
+
+    // Afficher login
+    document.querySelector(".li-login").style.display = "block";
+    document.getElementById("login-link").style.display = "inline";
 }

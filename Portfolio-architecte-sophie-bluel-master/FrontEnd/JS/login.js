@@ -18,14 +18,14 @@ form.addEventListener("submit", function(event) {
     })
     .then(response => {
         if (!response.ok) {
-            // 401 ou 404 → erreur
+            // 401 ou 404 erreur
             throw new Error("Identifiants incorrects");
         }
         return response.json();
     })
     .then(data => {
         localStorage.setItem("token", data.token);
-        window.location.href = "http://127.0.0.1:5500/Portfolio-architecte-sophie-bluel-master/FrontEnd/index.html";
+        window.location.href = "./index.html";
     })
     .catch(error => {
         const errorMessage = document.getElementById("error-message");
