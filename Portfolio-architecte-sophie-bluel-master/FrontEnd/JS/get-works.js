@@ -1,26 +1,37 @@
-export function afficherWorks(categoryId = null) {
-  fetch("http://localhost:5678/api/works")
-    .then(res => res.json())
-    .then(data => {
-      if( categoryId != null ) {
-         data = data.filter(work => work.categoryId === categoryId ) ;
-      }
-      const gallery = document.querySelector(".gallery");
-      gallery.innerHTML = "";
+// Liste globale des travaux
+export let works = [];
 
-      data.forEach(work => {
+// Récupère les travaux depuis l'API et met à jour "works"
+export async function getWorks() {
+    const response = await fetch("http://localhost:5678/api/works");
+    works = await response.json();
+    return works;
+}
+
+// Affiche les travaux dans la galerie principale
+export function afficherWorks(filtreCategorieId = null) {
+    const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = "";
+
+    let worksAffiches = works;
+
+    if (filtreCategorieId) {
+        worksAffiches = works.filter(work => work.categoryId === filtreCategorieId);
+    }
+
+    worksAffiches.forEach(work => {
         const figure = document.createElement("figure");
+        figure.dataset.id = work.id;
 
         const img = document.createElement("img");
         img.src = work.imageUrl;
         img.alt = work.title;
 
-        const caption = document.createElement("figcaption");
-        caption.textContent = work.title;
+        const figcaption = document.createElement("figcaption");
+        figcaption.textContent = work.title;
 
         figure.appendChild(img);
-        figure.appendChild(caption);
+        figure.appendChild(figcaption);
         gallery.appendChild(figure);
-      });
     });
 }

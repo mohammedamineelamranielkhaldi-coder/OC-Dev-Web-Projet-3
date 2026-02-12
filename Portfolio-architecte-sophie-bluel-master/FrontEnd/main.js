@@ -1,13 +1,40 @@
-import { afficherWorks } from "./JS/get-works.js";
+// IMPORTS PRINCIPAUX
 
-afficherWorks();
-
-
+import { getWorks, afficherWorks } from "./JS/get-works.js";
 import { afficherCategories } from "./JS/filter.js";
+import "./JS/modal.js";
 
-afficherCategories();
 
-// Vérifie si l'utilisateur est connecté
+// INITIALISATION DES FILTRES
+
+function initFiltres() {
+    const btnTous = document.querySelector('[data-filter="all"]');
+    const btnObjets = document.querySelector('[data-filter="1"]');
+    const btnAppartements = document.querySelector('[data-filter="2"]');
+    const btnHotels = document.querySelector('[data-filter="3"]');
+
+    if (btnTous) {
+        btnTous.addEventListener("click", () => afficherWorks(null));
+        btnObjets.addEventListener("click", () => afficherWorks(1));
+        btnAppartements.addEventListener("click", () => afficherWorks(2));
+        btnHotels.addEventListener("click", () => afficherWorks(3));
+    }
+}
+
+
+// INITIALISATION GLOBALE
+
+async function init() {
+    await getWorks();     // Charge les works depuis l'API
+    afficherWorks();      // Affiche la galerie principale
+    initFiltres();        // Active les filtres
+    afficherCategories(); // Affiche les catégories dans les boutons
+}
+
+init();
+
+
+// GESTION LOGIN / LOGOUT + MODE ÉDITION
 const token = localStorage.getItem("token");
 
 if (token) {
@@ -18,7 +45,7 @@ if (token) {
     document.getElementById("edit-button").style.display = "inline-block";
 
     // Affiche logout, cache login
-document.querySelector(".li-login").style.display = "none";
+    document.querySelector(".li-login").style.display = "none";
     document.getElementById("logout-link").style.display = "inline";
 
     // Cache les filtres
@@ -32,7 +59,8 @@ document.querySelector(".li-login").style.display = "none";
         localStorage.removeItem("token");
         window.location.reload();
     });
-}  else {
+
+} else {
     // cacher logout
     document.querySelector(".li-logout").style.display = "none";
 
