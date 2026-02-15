@@ -1,6 +1,6 @@
 import { afficherWorks } from "./get-works.js";
 
-// Part add div for filters + button Tous
+// Partie ajouter div pour filters + button Tous
 
 const portfolioSection = document.querySelector("#portfolio");
 const divFilters = document.createElement("div");
@@ -16,7 +16,7 @@ buttonTous.addEventListener("click", () => {
     afficherWorks();
 });
 
-// Part button from API
+// Partie button depuis API
 
 export function afficherCategories() {
     fetch("http://localhost:5678/api/categories")

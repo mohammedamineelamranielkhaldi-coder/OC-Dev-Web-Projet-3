@@ -282,7 +282,7 @@ nav li:hover {
 /* MODE EDITION */
 
 
-/* MODE ÉDITION — BANDEAU NOIR (PLEINE LARGEUR) */
+/* MODE ÉDITION BANDEAU NOIR (PLEINE LARGEUR) */
 #edit-banner {
     position: relative;
     width: 100vw;               /* pleine largeur de la fenêtre */
@@ -325,7 +325,7 @@ nav li:hover {
 }
 
 
-/* NAVIGATION — LOGIN / LOGOUT */
+/* NAVIGATION  LOGIN / LOGOUT */
 nav a {
     text-decoration: none;
     color: inherit;
@@ -498,7 +498,7 @@ nav li {
 .upload-zone {
     background-color: #E8F1F6;
     border-radius: 5px;
-    height: 170px; /* ← un peu plus compact */
+    height: 170px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -532,7 +532,7 @@ nav li {
     border: none; /* plus de bordure */
     padding: 0 18px;
     border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.15); /* effet ombre propre */
+    box-shadow: 0 0 8px rgba(0,0,0,0.15); /* effet ombre */
     background-color: white;
 }
 
